@@ -1,0 +1,22 @@
+runtime: python
+runtime_config:
+    python_version: 3
+env: flex
+entrypoint: gunicorn -b :$PORT ingestapp:app
+service: flights
+manual_scaling:
+  instances: 1
+
+#[START env]
+env_variables:
+    CLOUD_STORAGE_BUCKET: ingres
+#[END env]
+
+handlers:
+- url: /ingest
+  script: ingestapp.app
+
+- url: /.*
+  script: ingestapp.app
+
+
