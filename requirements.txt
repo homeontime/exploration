@@ -1,0 +1,10 @@
+numpy
+pandas
+matplotlib
+seaborn
+tensorflow
+jupyterlab
+Flask
+gunicorn
+google-cloud-storage
+
